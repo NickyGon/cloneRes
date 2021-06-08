@@ -1,0 +1,16 @@
+import json
+import boto3
+
+database= os.environ['MY_DATABASE']
+language= os.environ['MAIN_LANGUAGE']
+
+def handler(event, context):
+    print(json.dumps({"running":True}))
+    print(json.dumps({
+        "database":database,
+        "language":language
+    }))
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Hello from Lambda!')
+    }
